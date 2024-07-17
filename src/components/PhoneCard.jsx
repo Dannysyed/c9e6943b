@@ -4,8 +4,16 @@ import PhoneMissedIcon from "@mui/icons-material/PhoneMissed";
 import CallIcon from "@mui/icons-material/Call";
 import { Button } from "@mui/material";
 import ArchiveIcon from "@mui/icons-material/Archive";
-
-const PhoneCard = ({ from, time, direction, is_archived, callType }) => {
+import UnarchiveIcon from "@mui/icons-material/Unarchive";
+const PhoneCard = ({
+  from,
+  time,
+  direction,
+  is_archived,
+  callType,
+  handleArchive,
+  id,
+}) => {
   const formattedTime = format(new Date(time), "hh:mm a");
 
   return (
@@ -23,7 +31,11 @@ const PhoneCard = ({ from, time, direction, is_archived, callType }) => {
       </div>
       <div className="text-gray-500 flex items-center gap-3">
         <p>{formattedTime}</p>
-        <ArchiveIcon />
+        {!is_archived ? (
+          <ArchiveIcon onClick={() => handleArchive(id)} />
+        ) : (
+          <UnarchiveIcon onClick={() => handleArchive(id)} />
+        )}
       </div>
     </div>
   );

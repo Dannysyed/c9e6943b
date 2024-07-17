@@ -31,23 +31,24 @@ const ActivityFeed = () => {
   };
 
   return (
-    <div className="p-4 border-red-600 border-2">
-      <h1 className="text-2xl font-bold mb-4">Activity Feed</h1>
+    <div className="">
       <button
         className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
         onClick={handleArchiveAll}
       >
         Archive All Calls
       </button>
-      <div className="space-y-4 ">
+      <div className="space-y-4 overflow-scroll  h-[60vh] p-4">
         {activities.map((activity) => (
           <PhoneCard
             from={activity.from}
             key={activity.id}
+            id={activity.id}
             direction={activity.direction}
             time={activity.created_at}
             is_archived={activity.is_archived}
             callType={activity.call_type}
+            handleArchive={handleArchive}
           />
         ))}
       </div>
