@@ -12,7 +12,9 @@ const ActivityFeed = () => {
     const response = await getActivities();
     console.log(response);
 
-    setActivities(response.data.filter((activity) => !activity.is_archived));
+    setActivities(
+      response.data.filter((activity) => !activity.is_archived).reverse()
+    );
   };
 
   const handleArchive = async (id) => {
@@ -38,8 +40,15 @@ const ActivityFeed = () => {
         Archive All Calls
       </button>
       <div className="space-y-4 ">
-        {["1", "12"].map((activity) => (
-          <PhoneCard />
+        {activities.map((activity) => (
+          <PhoneCard
+            from={activity.from}
+            key={activity.id}
+            direction={activity.direction}
+            time={activity.created_at}
+            is_archived={activity.is_archived}
+            callType={activity.call_type}
+          />
         ))}
       </div>
     </div>

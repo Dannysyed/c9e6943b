@@ -1,18 +1,30 @@
 import React from "react";
+import { format } from "date-fns";
+import PhoneMissedIcon from "@mui/icons-material/PhoneMissed";
+import CallIcon from "@mui/icons-material/Call";
+import { Button } from "@mui/material";
+import ArchiveIcon from "@mui/icons-material/Archive";
 
-const PhoneCard = ({ time, direction, is_archived }) => {
+const PhoneCard = ({ from, time, direction, is_archived, callType }) => {
+  const formattedTime = format(new Date(time), "hh:mm a");
+
   return (
-    <div className="flex flex-row justify-between p-4 items-center border-2 border-gray-100">
-      <div className="flex felx-col gap-5 items-center">
-        <div>
-          <h1>📞</h1>
+    <div
+      className={`flex flex-row justify-between p-4 items-center border-2  rounded-lg`}
+    >
+      <div className="flex gap-3 items-center">
+        <div className="text-xl">
+          {direction == "inbound" ? <CallIcon /> : <PhoneMissedIcon />}
         </div>
         <div>
-          <h4>+91 999999999</h4>
-          <p>Tried to call</p>
+          <h4 className="text-lg font-semibold">{from}</h4>
+          <p className="text-gray-500">{callType}</p>
         </div>
       </div>
-      <div>7:0 PM</div>
+      <div className="text-gray-500 flex items-center gap-3">
+        <p>{formattedTime}</p>
+        <ArchiveIcon />
+      </div>
     </div>
   );
 };
