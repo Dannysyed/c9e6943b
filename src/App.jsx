@@ -1,8 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ActivityFeed from "./components/ActivityFeed.jsx";
-import { createRoot } from "react-dom/client";
 import ActivityDetail from "./components/ActivityDetail.jsx";
 import Archive from "./components/archive.jsx";
 import Header from "./Header.jsx";
