@@ -3,7 +3,10 @@ import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import RestoreIcon from "@mui/icons-material/Restore";
 import ArchiveIcon from "@mui/icons-material/Archive";
 import { Link, useLocation } from "react-router-dom";
-
+import PhoneIcon from "@mui/icons-material/Phone";
+import PersonIcon from "@mui/icons-material/Person";
+import KeyboardAltIcon from "@mui/icons-material/KeyboardAlt";
+import SettingsIcon from "@mui/icons-material/Settings";
 const BottomTabBar = () => {
   const location = useLocation();
   const [value, setValue] = React.useState(location.pathname);
@@ -19,30 +22,26 @@ const BottomTabBar = () => {
       <BottomNavigationAction
         component={Link}
         to="/"
-        label="Activity"
         value="/"
-        icon={<RestoreIcon />}
+        icon={<PhoneIcon />}
       />
       <BottomNavigationAction
         component={Link}
         to="/archive"
-        label="Archive"
         value="/archive"
-        icon={<ArchiveIcon />}
+        icon={<PersonIcon />}
       />
       <BottomNavigationAction
         component={Link}
         to="/archive"
-        label="Archive"
         value="/archive"
-        icon={<ArchiveIcon />}
+        icon={<KeyboardAltIcon />}
       />
       <BottomNavigationAction
         component={Link}
         to="/archive"
-        label="Archive"
         value="/archive"
-        icon={<ArchiveIcon />}
+        icon={<SettingsIcon />}
       />
     </BottomNavigation>
   );

@@ -10,11 +10,11 @@ const Header = () => {
         <h1 className="ml-2 text-xl font-bold">Activity</h1>
       </div>
       <nav className="flex space-x-4">
-        <Link className="hover:underline" to="/">
+        {/* <Link className="hover:underline" to="/">
           Activity Feed
-        </Link>
+        </Link> */}
         <Link className="hover:underline" to="/archive">
-          Archive
+          Archived
         </Link>
       </nav>
     </header>

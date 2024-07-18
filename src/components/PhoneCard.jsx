@@ -19,7 +19,6 @@ const PhoneCard = ({
   const formattedTime = format(new Date(time), "hh:mm a");
   const navigate = useNavigate();
   let handleNext = () => {
-    alert(id);
     navigate(`/activity/${id}`);
   };
   return (

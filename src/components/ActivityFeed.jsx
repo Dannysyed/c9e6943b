@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getActivities, updateActivity } from "../api";
 import PhoneCard from "./PhoneCard";
-
+import ArchiveIcon from "@mui/icons-material/Archive";
 const ActivityFeed = () => {
   const [activities, setActivities] = useState([]);
 
@@ -33,9 +33,10 @@ const ActivityFeed = () => {
   return (
     <div className="">
       <button
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
+        className="bg-green-500 text-white  px-4 py-2 rounded m-4 left-0"
         onClick={handleArchiveAll}
       >
+        <ArchiveIcon className="mr-2" />
         Archive All Calls
       </button>
       <div className="space-y-4 overflow-scroll  h-[60vh] p-4">
