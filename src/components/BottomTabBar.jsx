@@ -23,7 +23,7 @@ const BottomTabBar = () => {
         component={Link}
         to="/"
         value="/"
-        icon={<PhoneIcon />}
+        icon={<PhoneIcon className="text-green-500" />}
       />
       <BottomNavigationAction
         component={Link}

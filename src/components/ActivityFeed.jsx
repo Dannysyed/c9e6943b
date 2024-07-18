@@ -39,19 +39,23 @@ const ActivityFeed = () => {
         <ArchiveIcon className="mr-2" />
         Archive All Calls
       </button>
-      <div className="space-y-4 overflow-scroll  h-[60vh] p-4">
-        {activities.map((activity) => (
-          <PhoneCard
-            from={activity.from}
-            key={activity.id}
-            id={activity.id}
-            direction={activity.direction}
-            time={activity.created_at}
-            is_archived={activity.is_archived}
-            callType={activity.call_type}
-            handleArchive={handleArchive}
-          />
-        ))}
+      <div className="space-y-4 overflow-scroll  h-[60vh] px-4">
+        {activities.length == 0 ? (
+          <p className="text-center text-2xl">No calls Found</p>
+        ) : (
+          activities.map((activity) => (
+            <PhoneCard
+              from={activity.from}
+              key={activity.id}
+              id={activity.id}
+              direction={activity.direction}
+              time={activity.created_at}
+              is_archived={activity.is_archived}
+              callType={activity.call_type}
+              handleArchive={handleArchive}
+            />
+          ))
+        )}
       </div>
     </div>
   );

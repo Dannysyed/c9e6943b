@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getActivities, updateActivity } from "../api";
 import PhoneCard from "./PhoneCard";
+import UnarchiveIcon from "@mui/icons-material/Unarchive";
 
 const Archive = () => {
   const [archivedActivities, setArchivedActivities] = useState([]);
@@ -31,26 +32,30 @@ const Archive = () => {
 
   return (
     <div className="">
-      <h1 className="text-2xl font-bold mb-4">Archived Calls</h1>
       <button
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
+        className="bg-green-500 text-white  px-4 py-2 rounded m-4 left-0"
         onClick={handleUnarchiveAll}
       >
+        <UnarchiveIcon className="mr-2" />
         Unarchive All Calls
       </button>
       <div className="space-y-4 overflow-scroll  h-[60vh] p-4">
-        {archivedActivities.map((activity) => (
-          <PhoneCard
-            from={activity.from}
-            key={activity.id}
-            id={activity.id}
-            direction={activity.direction}
-            time={activity.created_at}
-            is_archived={activity.is_archived}
-            callType={activity.call_type}
-            handleArchive={handleUnarchive}
-          />
-        ))}
+        {archivedActivities.length === 0 ? (
+          <p className="text-center text-2xl">No calls Found</p>
+        ) : (
+          archivedActivities.map((activity) => (
+            <PhoneCard
+              from={activity.from}
+              key={activity.id}
+              id={activity.id}
+              direction={activity.direction}
+              time={activity.created_at}
+              is_archived={activity.is_archived}
+              callType={activity.call_type}
+              handleArchive={handleUnarchive}
+            />
+          ))
+        )}
       </div>
     </div>
   );

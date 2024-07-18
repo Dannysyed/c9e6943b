@@ -28,7 +28,11 @@ const PhoneCard = ({
     >
       <div className="flex gap-3 items-center">
         <div className="text-xl">
-          {direction == "inbound" ? <CallIcon /> : <PhoneMissedIcon />}
+          {callType == "answered" ? (
+            <CallIcon className="text-blue-500" />
+          ) : (
+            <PhoneMissedIcon className="text-red-500" />
+          )}
         </div>
         <div>
           <h4 className="text-lg font-semibold">{from}</h4>
