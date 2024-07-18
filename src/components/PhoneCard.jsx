@@ -4,6 +4,8 @@ import PhoneMissedIcon from "@mui/icons-material/PhoneMissed";
 import CallIcon from "@mui/icons-material/Call";
 import { Button } from "@mui/material";
 import ArchiveIcon from "@mui/icons-material/Archive";
+import { useNavigate } from "react-router-dom";
+
 import UnarchiveIcon from "@mui/icons-material/Unarchive";
 const PhoneCard = ({
   from,
@@ -15,10 +17,15 @@ const PhoneCard = ({
   id,
 }) => {
   const formattedTime = format(new Date(time), "hh:mm a");
-
+  const navigate = useNavigate();
+  let handleNext = () => {
+    alert(id);
+    navigate(`/activity/${id}`);
+  };
   return (
     <div
-      className={`flex flex-row justify-between p-4 items-center border-2  rounded-lg`}
+      className={`flex flex-row justify-between p-4 items-center border-2  rounded-lg hover:bg-slate-200 cursor-pointer`}
+      onClick={handleNext}
     >
       <div className="flex gap-3 items-center">
         <div className="text-xl">
