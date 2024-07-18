@@ -21,6 +21,10 @@ const PhoneCard = ({
   let handleNext = () => {
     navigate(`/activity/${id}`);
   };
+  const handleArchiveClick = (e) => {
+    e.stopPropagation();
+    handleArchive(id);
+  };
   return (
     <div
       className={`flex flex-row justify-between p-4 items-center border-2  rounded-lg hover:bg-slate-200 cursor-pointer`}
@@ -42,9 +46,12 @@ const PhoneCard = ({
       <div className="text-gray-500 flex items-center gap-3">
         <p>{formattedTime}</p>
         {!is_archived ? (
-          <ArchiveIcon onClick={() => handleArchive(id)} />
+          <ArchiveIcon onClick={handleArchiveClick} className="text-red-800" />
         ) : (
-          <UnarchiveIcon onClick={() => handleArchive(id)} />
+          <UnarchiveIcon
+            onClick={handleArchiveClick}
+            className="text-red-800"
+          />
         )}
       </div>
     </div>
